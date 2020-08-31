@@ -1,0 +1,8 @@
+<mat-card class="item">
+  <span class="item-text">{{name}}</span>
+  <div class="done-button-parent">
+    <button mat-mini-fab class="done-button-unchecked" [ngClass]="{'done-button-checked': done}" type="button" (click)="toggleDone()" aria-label="Done Button">
+      <mat-icon>done</mat-icon>
+    </button>
+  </div>
+</mat-card>
