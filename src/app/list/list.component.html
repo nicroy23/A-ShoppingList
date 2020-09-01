@@ -1,3 +1,14 @@
 <div class="list" *ngFor="let item of items">
     <app-list-item [name]="item"></app-list-item>
 </div>
+<div class="input-new-item" [ngClass]="{'show-input': showInput}">
+    <mat-form-field>
+        <mat-label>New item</mat-label>
+        <input matInput class="item-input-field" placeholder="Ex. Pizza">
+    </mat-form-field>
+</div>
+<div class="add-to-list-btn">
+    <button mat-fab aria-label="Add button." (click)="addPressed()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

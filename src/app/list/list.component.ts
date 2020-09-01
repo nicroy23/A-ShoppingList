@@ -9,7 +9,8 @@ import { ItemsService } from '../items.service';
 })
 export class ListComponent implements OnInit {
 
-  public items;
+  public items: string[];
+  public showInput: boolean;
 
   constructor(private itemsService: ItemsService) { }
 
@@ -19,6 +20,10 @@ export class ListComponent implements OnInit {
 
   getItems(): void {
     this.items = this.itemsService.getAllItems();
+  }
+
+  addPressed():void {
+    this.showInput = !this.showInput;
   }
 
 }

@@ -1,12 +1,16 @@
 .item {
-    background-color: #B23850;
+    background-color: #BB86FC;
     margin-bottom: 2%;
 }
 
 .item-text {
     font-size: 20px;
-    color: white;
+    color: black;
     font-family: 'Architects Daughter', cursive;
+}
+
+.item-checked {
+    text-decoration: line-through;
 }
 
 .done-button-parent {
@@ -21,5 +25,5 @@
 
 .done-button-checked {
     color: white;
-    background-color: #0859C6;
+    background-color: #EA3C53;
 }

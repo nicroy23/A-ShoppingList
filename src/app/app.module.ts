@@ -8,8 +8,9 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { MatCardModule } from '@angular/material/card';
 import { TitleBarComponent } from './title-bar/title-bar.component';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { ListComponent } from './list/list.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ListComponent } from './list/list.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

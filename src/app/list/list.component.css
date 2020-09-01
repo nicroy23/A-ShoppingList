@@ -2,3 +2,26 @@
     width: 90%;
     margin: auto;
 }
+
+.add-to-list-btn {
+    text-align: center;
+}
+
+.add-to-list-btn button {
+    background-color: #EA3C53;
+    color: white;
+}
+
+.input-new-item {
+    display: none;
+}
+
+.show-input {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.item-input-field {
+    font-size: 20px !important;
+}
