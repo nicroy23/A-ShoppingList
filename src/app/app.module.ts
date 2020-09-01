@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ListComponent } from './list/list.component';
 import { MatInputModule } from '@angular/material/input';
 import { AddItemComponent } from './add-item/add-item.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AddItemComponent } from './add-item/add-item.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { ItemsService } from '../items.service';
 
 @Component({
   selector: 'app-list-item',
@@ -7,16 +9,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
 
-  public done: boolean = false;
-  @Input() name: string;
+  @Input() item: object;
 
-  constructor() { }
+  @Output() messageEvent = new EventEmitter<number>();
+
+  constructor(private itemsService: ItemsService) { }
 
   ngOnInit(): void {
+    
   }
 
   toggleDone(): void {
-    this.done = !this.done;
+    this.itemsService.updateItemCheck(this.item.id, !this.item.checked);
+    this.messageEvent.emit(this.itemsService.getProgress());
   }
 
 }

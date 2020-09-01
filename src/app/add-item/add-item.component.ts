@@ -16,7 +16,19 @@ export class AddItemComponent implements OnInit {
   }
 
   addItemToList(name: string): void {
-    this.itemsService.items.push(name);
+    if (name !== '') {
+      this.itemsService.items.push({ id: this.randomId(), name: name, checked: false });
+    }
+  }
+
+  randomId(): string {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < 6; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
   }
 
 }

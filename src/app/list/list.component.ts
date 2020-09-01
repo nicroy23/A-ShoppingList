@@ -9,8 +9,9 @@ import { ItemsService } from '../items.service';
 })
 export class ListComponent implements OnInit {
 
-  public items: string[];
+  public items: Object[];
   public showInput: boolean;
+  public pourcentage: number;
 
   constructor(private itemsService: ItemsService) { }
 
@@ -20,6 +21,10 @@ export class ListComponent implements OnInit {
 
   getItems(): void {
     this.items = this.itemsService.getAllItems();
+  }
+
+  public updateProgress($event): void {
+    this.pourcentage = $event;
   }
 
   addPressed():void {
