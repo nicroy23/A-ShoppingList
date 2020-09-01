@@ -1,0 +1,14 @@
+<mat-card class="item-input">
+  <input #itemInput type="text" class="input-field" size="50" placeholder="Enter item name" />
+  <div class="add-button-parent">
+    <button
+      mat-mini-fab
+      class="add-button"
+      type="button"
+      aria-label="Done Button"
+      (click)="addItemToList(itemInput.value)"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</mat-card>

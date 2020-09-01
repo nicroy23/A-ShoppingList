@@ -11,13 +11,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ListComponent } from './list/list.component';
 import { MatInputModule } from '@angular/material/input';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListItemComponent,
     TitleBarComponent,
-    ListComponent
+    ListComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,

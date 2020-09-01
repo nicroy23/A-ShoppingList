@@ -1,0 +1,29 @@
+.item-input {
+    background-color: #bb86fc44;
+}
+
+.input-field {
+    max-width: 50%;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.404);
+    color: white;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.input-field:focus {
+    outline: none;
+    border-bottom: 1px solid white;
+}
+
+.add-button {
+    background-color: #009900;
+    color: white;
+}
+
+.add-button-parent {
+    float: right;
+    width: 1em;
+}
