@@ -1,5 +1,5 @@
 .item-input {
-    background-color: #bb86fc44;
+    background-color: #bb86fc2d;
 }
 
 .input-field {
@@ -8,19 +8,19 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.404);
-    color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.425);
+    color: black;
     font-family: 'Architects Daughter', cursive;
 }
 
 .input-field:focus {
     outline: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 .add-button {
     background-color: #009900;
-    color: white;
+    color: black;
 }
 
 .add-button-parent {

@@ -9,7 +9,7 @@ import { ItemsService } from '../items.service';
 })
 export class ListComponent implements OnInit {
 
-  public items: Object[];
+  public items: {id: string, name: string, checked: boolean}[];
   public showInput: boolean;
   public pourcentage: number;
 

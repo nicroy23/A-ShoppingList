@@ -9,7 +9,7 @@ import { ItemsService } from '../items.service';
 })
 export class ListItemComponent implements OnInit {
 
-  @Input() item: object;
+  @Input() item: {id: string, name: string, checked: boolean};
 
   @Output() messageEvent = new EventEmitter<number>();
 
