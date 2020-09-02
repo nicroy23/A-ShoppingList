@@ -16,6 +16,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ListPreviewComponent } from './list-preview/list-preview.component';
 import { AllClientListsComponent } from './all-client-lists/all-client-lists.component';
+import { LoginComponent } from './login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AllClientListsComponent } from './all-client-lists/all-client-lists.com
     ListComponent,
     AddItemComponent,
     ListPreviewComponent,
-    AllClientListsComponent
+    AllClientListsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { AllClientListsComponent } from './all-client-lists/all-client-lists.com
     MatInputModule,
     MatProgressBarModule,
     DragDropModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

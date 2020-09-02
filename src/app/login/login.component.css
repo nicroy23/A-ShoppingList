@@ -1,0 +1,27 @@
+.page-bg {
+    width: 100vw;
+    height: 100vh;
+    background-color: #26ABFF;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.logo-header {
+    display: flex;
+    justify-content: center;
+}
+
+.center-div {
+    width: 500px;
+    height: 500px;
+
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	margin: auto;
+}
