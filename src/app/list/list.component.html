@@ -1,6 +1,7 @@
-<div class="list">
+<app-title-bar></app-title-bar>
+<div class="list" cdkDropList [cdkDropListData]="items" (cdkDropListDropped)="drop($event)">
   <mat-progress-bar class="list-progress" mode="determinate" color="warn" value="{{pourcentage}}"></mat-progress-bar>
-  <div *ngFor="let item of items">
+  <div *ngFor="let item of items" cdkDrag class="item-parent">
     <app-list-item (messageEvent)="updateProgress($event)" [item]="item"></app-list-item>
   </div>
   <app-add-item></app-add-item>

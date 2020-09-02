@@ -1,0 +1,21 @@
+.previews {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+}
+
+.preview {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.title {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.title h1{
+    font-size: 50px;
+    font-family: 'Londrina Solid', cursive;
+}

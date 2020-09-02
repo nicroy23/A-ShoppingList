@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ItemsService } from '../items.service';
+import { moveItemInArray, transferArrayItem, CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list',
@@ -9,7 +10,7 @@ import { ItemsService } from '../items.service';
 })
 export class ListComponent implements OnInit {
 
-  public items: {id: string, name: string, checked: boolean}[];
+  public items: { id: string, name: string, checked: boolean }[];
   public showInput: boolean;
   public pourcentage: number;
 
@@ -27,8 +28,19 @@ export class ListComponent implements OnInit {
     this.pourcentage = $event;
   }
 
-  addPressed():void {
+  addPressed(): void {
     this.showInput = !this.showInput;
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 
 }

@@ -13,6 +13,9 @@ import { ListComponent } from './list/list.component';
 import { MatInputModule } from '@angular/material/input';
 import { AddItemComponent } from './add-item/add-item.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ListPreviewComponent } from './list-preview/list-preview.component';
+import { AllClientListsComponent } from './all-client-lists/all-client-lists.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ListItemComponent,
     TitleBarComponent,
     ListComponent,
-    AddItemComponent
+    AddItemComponent,
+    ListPreviewComponent,
+    AllClientListsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +36,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatIconModule,
     MatInputModule,
     MatProgressBarModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
