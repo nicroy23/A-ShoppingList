@@ -25,3 +25,12 @@
 	
 	margin: auto;
 }
+
+.login-buttons {
+    display: inline;
+}
+
+.login-btn{
+    background-color: rgb(0, 161, 0);
+    color: white;
+}
