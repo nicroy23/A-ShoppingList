@@ -18,6 +18,7 @@ import { ListPreviewComponent } from './list-preview/list-preview.component';
 import { AllClientListsComponent } from './all-client-lists/all-client-lists.component';
 import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatProgressBarModule,
     DragDropModule,
     MatFormFieldModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
