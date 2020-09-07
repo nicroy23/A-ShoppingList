@@ -19,6 +19,7 @@ import { AllClientListsComponent } from './all-client-lists/all-client-lists.com
 import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { AddListComponent } from './add-list/add-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     AddItemComponent,
     ListPreviewComponent,
     AllClientListsComponent,
-    LoginComponent
+    LoginComponent,
+    AddListComponent
   ],
   imports: [
     BrowserModule,

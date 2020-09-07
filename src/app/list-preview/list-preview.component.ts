@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-preview',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-preview.component.css']
 })
 export class ListPreviewComponent implements OnInit {
+
+  /**
+   * Is the list that's coming from the all-list component. (Parent of this component). 
+   */
+  @Input() list: { _id: string, user: string, list_name: string, items: [] };
 
   constructor() { }
 

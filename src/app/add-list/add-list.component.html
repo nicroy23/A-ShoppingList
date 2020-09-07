@@ -1,0 +1,16 @@
+<div class="preview" (click)="newList(listNameInput.value)">
+  <div class="title-preview-parent">
+    <span class="title-preview">New List</span>
+  </div>
+  <div class="inside-preview">
+    <mat-icon class="add-icon">add_circle_outline</mat-icon>
+  </div>
+  <div class="list-name-parent">
+    <div class="list-title-preview">
+      <input #listNameInput matInput class="input-field" placeholder="List Name" />
+    </div>
+    <div class="list-date-preview">
+      {{ date }}
+    </div>
+  </div>
+</div>

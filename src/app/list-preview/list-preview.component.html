@@ -1,4 +1,4 @@
-<div class="preview">
+<div class="preview" [routerLink]="['/nic_roy23/list/' + list._id]">
     <div class="title-preview-parent"> 
         <span class="title-preview">ShoppingList</span>
     </div>
@@ -10,7 +10,7 @@
     </div>
     <div class="list-name-parent">
         <div class="list-title-preview">
-            My Shopping List 1
+            {{list.list_name}}
         </div>
         <div class="list-date-preview">
             02/08/2020

@@ -2,8 +2,6 @@
     <h1>My Lists</h1>
 </div>
 <div class="previews">
-    <app-list-preview class="preview"></app-list-preview>
-    <app-list-preview class="preview"></app-list-preview>
-    <app-list-preview class="preview"></app-list-preview>
-    <app-list-preview class="preview"></app-list-preview>
+    <app-list-preview *ngFor="let list of allLists" class="preview" [list]="list"></app-list-preview>
+    <app-add-list class="preview"></app-add-list>
 </div>
