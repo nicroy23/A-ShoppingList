@@ -21,6 +21,7 @@
     width: 90%;
     margin: auto;
     position: relative;
+    filter: blur(2px);
 }
 
 .item-preview {

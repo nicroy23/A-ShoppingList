@@ -38,7 +38,7 @@ export class ListService {
    * 
    * @return A promise which contains the new list data, the same one that is stored in the DB. 
    */
-  createNewList(user: string, list_name: string) {
+  createNewList(user: string, listName: string, creationDate: string) {
     const API_URL = `http://localhost:4444/${user}/0`;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -48,7 +48,23 @@ export class ListService {
     }
 
     return new Promise((resolve) => {
-      this.http.post<{}>(API_URL, { list_name: list_name, items: [] }, httpOptions).subscribe(data => {
+      this.http.post<{}>(API_URL, { list_name: listName, creation_date: creationDate, items: [] }, httpOptions).subscribe(data => {
+        resolve(data);
+      })
+    });
+  }
+
+  updateExistingList(user: string, listId: string, items: { id: string, name: string, checked: boolean }[]) {
+    const API_URL = `http://localhost:4444/${user}/${listId}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type':  'application/json'
+      })
+    }
+
+    return new Promise((resolve) => {
+      this.http.post<{}>(API_URL, { items: items }, httpOptions).subscribe(data => {
         resolve(data);
       })
     });

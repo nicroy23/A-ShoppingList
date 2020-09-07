@@ -40,7 +40,7 @@ export class AddListComponent implements OnInit {
   newList(listName: string): void {
     if (listName !== "") {
       //CHANGE NAME LOGIC
-      this.listService.createNewList('nic_roy23', listName).then((data: { items: [], user: string, list_name: string, _id: string }) => {
+      this.listService.createNewList('nic_roy23', listName, this.date).then((data: { items: [], user: string, list_name: string, creation_date: string, _id: string }) => {
         console.log(data);
         this.router.navigateByUrl(`/${data.user}/list/${data._id}`);
       });

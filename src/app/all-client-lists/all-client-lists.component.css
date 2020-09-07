@@ -1,8 +1,8 @@
 .previews {
     display: inline-flex;
     flex-wrap: wrap;
+    padding: auto;
     width: 90%;
-    margin: auto;
 }
 
 .preview {

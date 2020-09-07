@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ItemsService } from '../items.service';
+import { ListService } from '../list.service';
 import { moveItemInArray, transferArrayItem, CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -9,16 +10,27 @@ import { moveItemInArray, transferArrayItem, CdkDragDrop } from '@angular/cdk/dr
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
 
   public items: { id: string, name: string, checked: boolean }[];
   public showInput: boolean;
   public pourcentage: number;
+  public listId: string;
 
-  constructor(private itemsService: ItemsService, private route: ActivatedRoute) { }
+  constructor(private itemsService: ItemsService, private listService: ListService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.setItems();
+  }
+
+  /**
+   * Function used to update the list in DB BEFORE the component gets destroyed, so it only call the when you're completely done with the list. 
+   * Maybe will change this logic because does not get called when the user closes the page... 
+   */
+  ngOnDestroy(): void {
+    this.listService.updateExistingList(this.route.snapshot.paramMap.get('client'), this.listId, this.items).then(data => {
+      console.log(data);
+    });
   }
 
   /**
@@ -29,9 +41,10 @@ export class ListComponent implements OnInit {
    * @returns Nothing.
    */
   setItems(): void {
-    this.itemsService.getAllItemsFromList(this.route.snapshot.paramMap.get('id')).then((data: { id: string, name: string, checked: boolean }[]) => { 
+    this.itemsService.getAllItemsFromList(this.route.snapshot.paramMap.get('id')).then((data: { id: string, name: string, checked: boolean }[]) => {
       this.items = data;
-      this.setProgress(); 
+      this.listId = this.route.snapshot.paramMap.get('id');
+      this.setProgress();
     });
   }
 

@@ -1,6 +1,6 @@
 <div class="preview" [routerLink]="['/nic_roy23/list/' + list._id]">
     <div class="title-preview-parent"> 
-        <span class="title-preview">ShoppingList</span>
+        <span class="title-preview">AwesomeList</span>
     </div>
     <div class="inside-preview">
         <mat-card class="item-preview"></mat-card>
@@ -13,7 +13,7 @@
             {{list.list_name}}
         </div>
         <div class="list-date-preview">
-            02/08/2020
+            {{list.creation_date}}
         </div>
     </div>
 </div>
