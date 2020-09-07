@@ -15,13 +15,13 @@ export class AddListComponent implements OnInit {
   constructor(private listService: ListService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getCurrentDate();
+    this.setCurrentDate();
   }
 
   /**
    * Function that automatically sets the component's date to today's date
    */
-  getCurrentDate(): void {
+  setCurrentDate(): void {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
