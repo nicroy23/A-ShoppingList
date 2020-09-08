@@ -29,7 +29,7 @@ export class ItemsService {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
         'Content-Type':  'application/json',
-        'Authorization': `Bearer ${this.clientService.token}`
+        'Authorization': `Bearer ${sessionStorage.getItem("id_token")}`
       }),
       withCredentials: true
     }

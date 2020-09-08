@@ -19,8 +19,9 @@ export class LoginComponent implements OnInit {
 
   loginClient(username: string, password: string): void {
     if (username != '' && password != '') {
-      this.clientService.loginClient(username, password).then((data: { authenticated: boolean, username: string }) => {
+      this.clientService.loginClient(username, password).then((data: { authenticated: boolean, username: string, token: string }) => {
         if (data.authenticated) {
+          sessionStorage.setItem("id_token", data.token);
           this.router.navigateByUrl(`/${data.username}/all-lists`);
         }
       });
@@ -30,9 +31,11 @@ export class LoginComponent implements OnInit {
   registerClient(username: string, password: string, passwordRepeat: string): void {
     if (username != '' && password != '' && password != '') {
       if (password === passwordRepeat) {
-        this.clientService.registerClient(username, password).then((data: { authenticated: boolean, username: string }) => {
+        this.clientService.registerClient(username, password).then((data: { authenticated: boolean, username: string, token: string }) => {
           console.log(data);
           if (data.authenticated) {
+            console.log(data.token);
+            sessionStorage.setItem("id_token", data.token);
             this.router.navigateByUrl(`/${data.username}/all-lists`);
           }
         });

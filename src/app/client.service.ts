@@ -6,8 +6,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ClientService {
 
-  public token: string;
-
   constructor(private http: HttpClient) { }
 
   loginClient(username: string, password: string) {
@@ -22,7 +20,6 @@ export class ClientService {
 
     return new Promise((resolve) => {
       this.http.post<{ authenticated: boolean, username: string, token: string }>(API_URL, { username: username, password: password }, httpOptions).subscribe(data => {
-        this.token = data.token;
         resolve(data);
       })
     });
@@ -40,7 +37,7 @@ export class ClientService {
 
     return new Promise((resolve) => {
       this.http.post<{ authenticated: boolean, username: string, token: string }>(API_URL, { username: username, password: password }, httpOptions).subscribe(data => {
-        this.token = data.token;
+        //this.setSession(data.token);
         resolve(data);
       })
     });
