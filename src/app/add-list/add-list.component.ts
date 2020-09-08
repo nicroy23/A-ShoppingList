@@ -10,6 +10,9 @@ import { ListService } from '../list.service';
 })
 export class AddListComponent implements OnInit {
 
+  /**
+   * Current date
+   */
   public date: string;
 
   constructor(private listService: ListService, private router: Router, private route: ActivatedRoute) { }
@@ -40,9 +43,9 @@ export class AddListComponent implements OnInit {
   newList(listName: string): void {
     if (listName !== "") {
       //CHANGE NAME LOGIC
-      this.listService.createNewList(this.route.snapshot.paramMap.get('client'), listName, this.date).then((data: { items: [], user: string, list_name: string, creation_date: string, _id: string }) => {
+      this.listService.createNewList(localStorage.getItem("username"), listName, this.date).then((data: { items: [], user: string, list_name: string, creation_date: string, _id: string }) => {
         console.log(data);
-        this.router.navigateByUrl(`/${data.user}/list/${data._id}`);
+        this.router.navigateByUrl(`/list/${data._id}`);
       });
     }
   }

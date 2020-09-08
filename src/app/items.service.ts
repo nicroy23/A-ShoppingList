@@ -9,6 +9,7 @@ import { ClientService } from './client.service';
 export class ItemsService {
 
   public items: { id: string, name: string, checked: boolean }[];
+  public listName: string;
   public pourcentage: number;
 
   constructor(private http: HttpClient, private clientService: ClientService) { }
@@ -18,13 +19,15 @@ export class ItemsService {
    * functions to use and update the array in the items service. This makes it easier to manage the items by multiple components
    * and also by this service.
    * 
+   * ++The localStorage stores the json tokem received from the server++
+   * 
    * @param id - The id of the list to get items from. Comes from the component who calls this method.
    * 
    * @return - A promise, because the action is asyncronous. This allows the component to get the service items AFTER the server has returned
    * the items, so that the list component does not get an empty array or the wrong items.
    */
   getAllItemsFromList(id: string) {
-    const API_URL = "http://localhost:4444/nic_roy23/list/" + id;
+    const API_URL = `http://localhost:4444/${localStorage.getItem("username")}/list/${id}`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
@@ -35,8 +38,9 @@ export class ItemsService {
     }
 
     return new Promise((resolve) => {
-      this.http.get<{ id: string, items: [] }>(API_URL, httpOptions).subscribe(data => {
+      this.http.get<{ id: string, list_name: string; items: [] }>(API_URL, httpOptions).subscribe(data => {
         this.items = data.items;
+        this.listName = data.list_name;
         resolve(data.items);
         console.log(this.items);
       })
@@ -98,5 +102,9 @@ export class ItemsService {
    */
   getProgress(): number {
     return Math.round(this.getNumItemsChecked() / this.items.length * 100);
+  }
+
+  getListName(): string {
+    return this.listName;
   }
 }

@@ -1,2 +1,7 @@
-<h1 class="title">Shopping List</h1>
-
+<div class="title-bar">
+  <button mat-raised-button class="home-btn" [routerLink]="'/my-lists'"><mat-icon>home</mat-icon></button>
+  <div class="title">
+    <h1>{{title}}</h1>
+  </div>
+  <button mat-raised-button class="logout-btn" color="warn" (click)="logoutUser()">Logout</button>
+</div>

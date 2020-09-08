@@ -1,8 +1,21 @@
-.title {
-    text-align: center;
-    margin-top: 5%;
-    height: 100px;
-    font-size: 60px;
-    color: black;
+.title-bar {
+    position: fixed;
+    z-index: 1;
+    top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 90%;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.title-bar h1 {
+    font-size: 50px;
     font-family: 'Londrina Solid', cursive;
+}
+
+.logout-btn {
+    height: 50px;
 }

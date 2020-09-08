@@ -66,6 +66,17 @@ export class ListService {
     });
   }
 
+  /**
+   * Funtion to update a specific list in the DB. Calls the API and sends back the updated list to the component. Uses json token to authenticate
+   * in the server.
+   * 
+   * @param user - The username of the current user.
+   * @param listId - The id of the list that we want to update.
+   * @param items - The items that we want to insert in DB *NOTE: Even if the items are the same, it sends all of them. It always send all the
+   * items, the new ones and the old ones. It just saves everything to the DB.
+   * 
+   * @return A promise, which sends the updated list to the component when the server responds. 
+   */
   updateExistingList(user: string, listId: string, items: { id: string, name: string, checked: boolean }[]) {
     const API_URL = `http://localhost:4444/${user}/${listId}`;
     const httpOptions = {

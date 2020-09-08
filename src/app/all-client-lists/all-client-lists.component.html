@@ -1,7 +1,11 @@
-<div class="title">
-    <h1>My Lists</h1>
-</div>
-<div class="previews">
-    <app-list-preview *ngFor="let list of allLists" class="preview" [list]="list"></app-list-preview>
+<app-title-bar></app-title-bar>
+<div class="parent">
+  <div class="previews">
+    <app-list-preview
+      *ngFor="let list of allLists"
+      class="preview"
+      [list]="list"
+    ></app-list-preview>
     <app-add-list class="preview"></app-add-list>
+  </div>
 </div>

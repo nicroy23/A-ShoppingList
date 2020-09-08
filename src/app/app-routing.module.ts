@@ -8,8 +8,8 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: ':client/all-lists', component: AllClientListsComponent },
-  { path: ':client/list/:id', component: ListComponent },
+  { path: 'my-lists', component: AllClientListsComponent },
+  { path: 'list/:id', component: ListComponent },
 ];
 
 @NgModule({

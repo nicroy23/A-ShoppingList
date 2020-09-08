@@ -15,6 +15,7 @@ export class ListComponent implements OnInit, OnDestroy {
   public items: { id: string, name: string, checked: boolean }[];
   public showInput: boolean;
   public pourcentage: number;
+  public name: string;
   public listId: string;
 
   constructor(private itemsService: ItemsService, private listService: ListService, private route: ActivatedRoute) { }
@@ -43,6 +44,7 @@ export class ListComponent implements OnInit, OnDestroy {
   setItems(): void {
     this.itemsService.getAllItemsFromList(this.route.snapshot.paramMap.get('id')).then((data: { id: string, name: string, checked: boolean }[]) => {
       this.items = data;
+      this.name = this.itemsService.getListName();
       this.listId = this.route.snapshot.paramMap.get('id');
       this.setProgress();
     });

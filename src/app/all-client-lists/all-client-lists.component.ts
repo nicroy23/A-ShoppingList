@@ -10,6 +10,9 @@ import { ListService } from '../list.service';
 })
 export class AllClientListsComponent implements OnInit {
 
+  /**
+   * Every list of specific client. 
+   */
   public allLists: { _id: string, user: string, list_name: string, items: [] }[];
 
   constructor(private listService: ListService, private route: ActivatedRoute) { }
