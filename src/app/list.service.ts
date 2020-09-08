@@ -26,7 +26,7 @@ export class ListService {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
         'Content-Type':  'application/json',
-        'Authorization': `Bearer ${sessionStorage.getItem("id_token")}`
+        'Authorization': `Bearer ${localStorage.getItem("id_token")}`
       }),
       withCredentials: true
     }
@@ -54,7 +54,7 @@ export class ListService {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
         'Content-Type':  'application/json',
-        'Authorization': `Bearer ${sessionStorage.getItem("id_token")}`
+        'Authorization': `Bearer ${localStorage.getItem("id_token")}`
       }),
       withCredentials: true
     }
@@ -72,7 +72,7 @@ export class ListService {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
         'Content-Type':  'application/json',
-        'Authorization': `Bearer ${sessionStorage.getItem("id_token")}`
+        'Authorization': `Bearer ${localStorage.getItem("id_token")}`
       }),
       withCredentials: true
     }

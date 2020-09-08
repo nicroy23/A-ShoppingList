@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
     if (username != '' && password != '') {
       this.clientService.loginClient(username, password).then((data: { authenticated: boolean, username: string, token: string }) => {
         if (data.authenticated) {
-          sessionStorage.setItem("id_token", data.token);
+          localStorage.setItem("id_token", data.token);
+          localStorage.setItem("username", data.username);
           this.router.navigateByUrl(`/${data.username}/all-lists`);
         }
       });
@@ -35,7 +36,8 @@ export class LoginComponent implements OnInit {
           console.log(data);
           if (data.authenticated) {
             console.log(data.token);
-            sessionStorage.setItem("id_token", data.token);
+            localStorage.setItem("id_token", data.token);
+            localStorage.setItem("username", data.username);
             this.router.navigateByUrl(`/${data.username}/all-lists`);
           }
         });
