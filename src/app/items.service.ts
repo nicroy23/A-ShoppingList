@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { ClientService } from './client.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +11,7 @@ export class ItemsService {
   public items: { id: string, name: string, checked: boolean }[];
   public pourcentage: number;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private clientService: ClientService) { }
 
   /**
    * Function to allow the list component to get all the list items from the server. It also updates this.items to allow the other
@@ -23,9 +25,17 @@ export class ItemsService {
    */
   getAllItemsFromList(id: string) {
     const API_URL = "http://localhost:4444/nic_roy23/list/" + id;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${this.clientService.token}`
+      }),
+      withCredentials: true
+    }
 
     return new Promise((resolve) => {
-      this.http.get<{ id: string, items: [] }>(API_URL).subscribe(data => {
+      this.http.get<{ id: string, items: [] }>(API_URL, httpOptions).subscribe(data => {
         this.items = data.items;
         resolve(data.items);
         console.log(this.items);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ListService } from '../list.service';
 
@@ -12,7 +12,7 @@ export class AddListComponent implements OnInit {
 
   public date: string;
 
-  constructor(private listService: ListService, private router: Router) { }
+  constructor(private listService: ListService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.setCurrentDate();
@@ -40,7 +40,7 @@ export class AddListComponent implements OnInit {
   newList(listName: string): void {
     if (listName !== "") {
       //CHANGE NAME LOGIC
-      this.listService.createNewList('nic_roy23', listName, this.date).then((data: { items: [], user: string, list_name: string, creation_date: string, _id: string }) => {
+      this.listService.createNewList(this.route.snapshot.paramMap.get('client'), listName, this.date).then((data: { items: [], user: string, list_name: string, creation_date: string, _id: string }) => {
         console.log(data);
         this.router.navigateByUrl(`/${data.user}/list/${data._id}`);
       });

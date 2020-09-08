@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { ClientService } from './client.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +10,7 @@ export class ListService {
 
   public lists: { _id: string, user: string, list_name: string, items: [] }[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private clientService: ClientService) { }
 
   /**
    * Function that returns a promise of an array of all lists from a specific user. Also updates the public field lists from this service
@@ -20,9 +22,17 @@ export class ListService {
    */
   getAllLists(user: string) {
     const API_URL = `http://localhost:4444/${user}/all-lists`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${this.clientService.token}`
+      }),
+      withCredentials: true
+    }
 
     return new Promise((resolve) => {
-      this.http.get<{ _id: string, user: string, list_name: string, items: [] }[]>(API_URL).subscribe(data => {
+      this.http.get<{ _id: string, user: string, list_name: string, items: [] }[]>(API_URL, httpOptions).subscribe(data => {
         this.lists = data;
         resolve(data);
       })
@@ -43,8 +53,10 @@ export class ListService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
-        'Content-Type':  'application/json'
-      })
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${this.clientService.token}`
+      }),
+      withCredentials: true
     }
 
     return new Promise((resolve) => {
@@ -59,8 +71,10 @@ export class ListService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
-        'Content-Type':  'application/json'
-      })
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${this.clientService.token}`
+      }),
+      withCredentials: true
     }
 
     return new Promise((resolve) => {

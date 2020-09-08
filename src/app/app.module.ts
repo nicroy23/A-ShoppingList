@@ -12,14 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { ListComponent } from './list/list.component';
 import { MatInputModule } from '@angular/material/input';
 import { AddItemComponent } from './add-item/add-item.component';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ListPreviewComponent } from './list-preview/list-preview.component';
 import { AllClientListsComponent } from './all-client-lists/all-client-lists.component';
 import { LoginComponent } from './login/login.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { AddListComponent } from './add-list/add-list.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AddListComponent } from './add-list/add-list.component';
     DragDropModule,
     MatFormFieldModule,
     HttpClientModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

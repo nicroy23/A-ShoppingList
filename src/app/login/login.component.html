@@ -1,32 +1,132 @@
 <div class="page-bg">
-    <div class="center-div">
+  <div class="center-div">
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Login">
         <mat-card class="login-form-parent">
-            <mat-card-header class="logo-header">
-                <img src="../../favicon.ico" alt="Logo">
-            </mat-card-header>
-            <mat-card-content class="login-form">
-                <br>
-                <h1>Login to ListApp</h1>
-                <p>
-                    <mat-form-field appearance="standard">
-                        <mat-label>Username</mat-label>
-                        <input matInput placeholder="Ex. nick">
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field appearance="standard">
-                        <mat-label>Password</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'">
-                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                            [attr.aria-pressed]="hide">
-                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
-                    </mat-form-field>
-                </p>
-                <div class="login-buttons">
-                    <button mat-flat-button class="login-btn">Login</button>
-                </div>
-            </mat-card-content>
+          <mat-card-header class="logo-header">
+            <img src="../../favicon.ico" alt="Logo" />
+          </mat-card-header>
+          <mat-card-content class="login-form">
+            <br />
+            <h1>Login</h1>
+            <p>
+              <mat-form-field appearance="standard">
+                <mat-label>Username</mat-label>
+                <input #loginUsernameInput matInput placeholder="Ex. nick" />
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="standard">
+                <mat-label>Password</mat-label>
+                <input
+                  #loginPasswordInput
+                  matInput
+                  [type]="hide ? 'password' : 'text'"
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+            </p>
+            <div class="login-buttons">
+              <button
+                mat-flat-button
+                class="login-btn"
+                (click)="
+                  loginClient(
+                    loginUsernameInput.value,
+                    loginPasswordInput.value
+                  )
+                "
+              >
+                Login
+              </button>
+            </div>
+          </mat-card-content>
         </mat-card>
-    </div>
+      </mat-tab>
+      <mat-tab label="Register">
+        <mat-card class="login-form-parent">
+          <mat-card-header class="logo-header">
+            <img src="../../favicon.ico" alt="Logo" />
+          </mat-card-header>
+          <mat-card-content class="login-form">
+            <br />
+            <h1>Create an account</h1>
+            <p>
+              <mat-form-field appearance="standard">
+                <mat-label>Username</mat-label>
+                <input #registerUsernameInput matInput placeholder="Ex. nick" />
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="standard">
+                <mat-label>Password</mat-label>
+                <input
+                  #registerPasswordInput
+                  matInput
+                  [type]="hide ? 'password' : 'text'"
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="standard">
+                <mat-label>Repeat password</mat-label>
+                <input
+                  #usernamePasswordRepeatInput
+                  matInput
+                  [type]="hide ? 'password' : 'text'"
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+            </p>
+            <div class="login-buttons">
+              <button
+                mat-flat-button
+                class="login-btn"
+                (click)="
+                  registerClient(
+                    registerUsernameInput.value,
+                    registerPasswordInput.value,
+                    usernamePasswordRepeatInput.value
+                  )
+                "
+              >
+                Register
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
 </div>
