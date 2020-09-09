@@ -25,17 +25,22 @@ export class ListService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem("id_token")}`
       }),
       withCredentials: true
     }
 
-    return new Promise((resolve) => {
-      this.http.get<{ _id: string, user: string, list_name: string, items: [] }[]>(API_URL, httpOptions).subscribe(data => {
-        this.lists = data;
-        resolve(data);
-      })
+    return new Promise((resolve, reject) => {
+      this.http.get<{ _id: string, user: string, list_name: string, items: [] }[]>(API_URL, httpOptions).subscribe(
+        data => {
+          this.lists = data;
+          resolve(data);
+        },
+        error => {
+          reject(error.error.error);
+        }
+      )
     });
   }
 
@@ -53,16 +58,21 @@ export class ListService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem("id_token")}`
       }),
       withCredentials: true
     }
 
-    return new Promise((resolve) => {
-      this.http.post<{}>(API_URL, { list_name: listName, creation_date: creationDate, items: [] }, httpOptions).subscribe(data => {
-        resolve(data);
-      })
+    return new Promise((resolve, reject) => {
+      this.http.post<{}>(API_URL, { list_name: listName, creation_date: creationDate, items: [] }, httpOptions).subscribe(
+        data => {
+          resolve(data);
+        },
+        error => {
+          reject(error.error.error);
+        }
+      )
     });
   }
 
@@ -82,16 +92,21 @@ export class ListService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem("id_token")}`
       }),
       withCredentials: true
     }
 
-    return new Promise((resolve) => {
-      this.http.post<{}>(API_URL, { items: items }, httpOptions).subscribe(data => {
-        resolve(data);
-      })
+    return new Promise((resolve, reject) => {
+      this.http.post<{}>(API_URL, { items: items }, httpOptions).subscribe(
+        data => {
+          resolve(data);
+        },
+        error => {
+          reject(error.error.error);
+        }
+      )
     });
   }
 }

@@ -1,11 +1,16 @@
 <div class="page-bg">
   <div class="center-div">
+    <div class="logo-header">
+      <img src="assets/logo_transparent.png" class="logo-img" alt="Logo" />
+    </div>
     <mat-tab-group mat-align-tabs="center">
       <mat-tab label="Login">
-        <mat-card class="login-form-parent">
-          <mat-card-header class="logo-header">
-            <img src="../../favicon.ico" alt="Logo" />
-          </mat-card-header>
+        <mat-card
+          class="login-form-parent"
+          (keyup.enter)="
+            loginClient(loginUsernameInput.value, loginPasswordInput.value)
+          "
+        >
           <mat-card-content class="login-form">
             <br />
             <h1>Login</h1>
@@ -55,10 +60,16 @@
       </mat-tab>
       <mat-tab label="Register">
         <mat-card class="login-form-parent">
-          <mat-card-header class="logo-header">
-            <img src="../../favicon.ico" alt="Logo" />
-          </mat-card-header>
-          <mat-card-content class="login-form">
+          <mat-card-content
+            class="login-form"
+            (keyup.enter)="
+              registerClient(
+                registerUsernameInput.value,
+                registerPasswordInput.value,
+                usernamePasswordRepeatInput.value
+              )
+            "
+          >
             <br />
             <h1>Create an account</h1>
             <p>
@@ -128,5 +139,11 @@
         </mat-card>
       </mat-tab>
     </mat-tab-group>
+  </div>
+  <div class="login-footer">
+    <div>
+      &copy; SurreaList 2020 -
+      <a href="https://github.com/nicroy23" target="_blank">Made by Nicolas</a>
+    </div>
   </div>
 </div>

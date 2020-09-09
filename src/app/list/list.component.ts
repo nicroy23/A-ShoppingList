@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ItemsService } from '../items.service';
 import { ListService } from '../list.service';
@@ -18,7 +19,7 @@ export class ListComponent implements OnInit, OnDestroy {
   public name: string;
   public listId: string;
 
-  constructor(private itemsService: ItemsService, private listService: ListService, private route: ActivatedRoute) { }
+  constructor(private itemsService: ItemsService, private listService: ListService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.setItems();
@@ -47,7 +48,10 @@ export class ListComponent implements OnInit, OnDestroy {
       this.name = this.itemsService.getListName();
       this.listId = this.route.snapshot.paramMap.get('id');
       this.setProgress();
-    });
+    })
+      .catch(errorMsg => {
+        this.openSnackBar('❌ ' + errorMsg);
+      });;
   }
 
   /**
@@ -85,6 +89,14 @@ export class ListComponent implements OnInit, OnDestroy {
         event.previousIndex,
         event.currentIndex);
     }
+  }
+
+  openSnackBar(message: string): void {
+    this._snackBar.open(message, '', {
+      duration: 2000,
+      horizontalPosition: "start",
+      verticalPosition: "top"
+    });
   }
 
 }

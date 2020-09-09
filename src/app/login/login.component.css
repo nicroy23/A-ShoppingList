@@ -1,36 +1,57 @@
 .page-bg {
-    width: 100vw;
-    height: 100vh;
-    background-color: #26ABFF;
+  width: 100vw;
+  height: 100vh;
+  background-color: #26abff;
 }
 
 .login-form {
-    text-align: center;
+  text-align: center;
 }
 
 .logo-header {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 150px;
+  height: 150px;
 }
 
 .center-div {
-    width: 500px;
-    height: 500px;
+  width: 500px;
+  height: 500px;
 
-    position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	
-	margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin-top: 6%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
 }
 
 .login-buttons {
-    display: inline;
+  display: inline;
 }
 
-.login-btn{
-    background-color: rgb(0, 161, 0);
-    color: white;
+.login-btn {
+  background-color: rgb(0, 161, 0);
+  color: white;
+}
+
+.login-footer {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  color: #003366;
+  width: 100vw;
+  background-color: transparent;
 }

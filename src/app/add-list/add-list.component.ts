@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ListService } from '../list.service';
 
@@ -15,7 +16,7 @@ export class AddListComponent implements OnInit {
    */
   public date: string;
 
-  constructor(private listService: ListService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private listService: ListService, private router: Router, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.setCurrentDate();
@@ -46,7 +47,18 @@ export class AddListComponent implements OnInit {
       this.listService.createNewList(localStorage.getItem("username"), listName, this.date).then((data: { items: [], user: string, list_name: string, creation_date: string, _id: string }) => {
         console.log(data);
         this.router.navigateByUrl(`/list/${data._id}`);
-      });
+      })
+        .catch(errorMsg => {
+          this.openSnackBar('❌ ' + errorMsg);
+        });;
     }
+  }
+
+  openSnackBar(message: string): void {
+    this._snackBar.open(message, '', {
+      duration: 2000,
+      horizontalPosition: "start",
+      verticalPosition: "top"
+    });
   }
 }

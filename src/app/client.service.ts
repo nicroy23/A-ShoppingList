@@ -29,10 +29,16 @@ export class ClientService {
       withCredentials: true
     }
 
-    return new Promise((resolve) => {
-      this.http.post<{ authenticated: boolean, username: string, token: string }>(API_URL, { username: username, password: password }, httpOptions).subscribe(data => {
-        resolve(data);
-      })
+    return new Promise((resolve, reject) => {
+      this.http.post<{ authenticated: boolean, username: string, token: string }>(API_URL, { username: username, password: password }, httpOptions).subscribe(
+        data => {
+          console.log(data);
+          resolve(data);
+        },
+        error => {
+          reject(error.error.error);
+        }
+      )
     });
   }
 
@@ -55,11 +61,16 @@ export class ClientService {
       withCredentials: true
     }
 
-    return new Promise((resolve) => {
-      this.http.post<{ authenticated: boolean, username: string, token: string }>(API_URL, { username: username, password: password }, httpOptions).subscribe(data => {
-        //this.setSession(data.token);
-        resolve(data);
-      })
+    return new Promise((resolve, reject) => {
+      this.http.post<{ authenticated: boolean, username: string, token: string }>(API_URL, { username: username, password: password }, httpOptions).subscribe(
+        data => {
+          console.log(data);
+          resolve(data);
+        },
+        error => {
+          reject(error.error.error);
+        }
+      )
     });
   }
 
