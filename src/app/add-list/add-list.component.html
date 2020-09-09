@@ -7,7 +7,7 @@
   </div>
   <div class="list-name-parent">
     <div class="list-title-preview">
-      <input #listNameInput matInput class="input-field" placeholder="List Name" (keyup.enter)="newList(listNameInput.value)" />
+      <input #listNameInput matInput class="input-field" placeholder="List Name" maxlength="20" (keyup.enter)="newList(listNameInput.value)" />
     </div>
     <div class="list-date-preview">
       {{ date }}

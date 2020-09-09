@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -30,6 +30,17 @@ export class ListComponent implements OnInit, OnDestroy {
    * Maybe will change this logic because does not get called when the user closes the page... 
    */
   ngOnDestroy(): void {
+    this.listService.updateExistingList(this.route.snapshot.paramMap.get('client'), this.listId, this.items).then(data => {
+      console.log(data);
+    });
+  }
+
+  /**
+   * Function that is called just before the window is closed. That means it will save the new items even if the user does not return to home
+   * before closing. 
+   */
+  @HostListener('window:beforeunload', [ '$event' ])
+  beforeUnloadHandler() {
     this.listService.updateExistingList(this.route.snapshot.paramMap.get('client'), this.listId, this.items).then(data => {
       console.log(data);
     });

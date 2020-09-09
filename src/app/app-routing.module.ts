@@ -5,11 +5,13 @@ import { ListComponent } from './list/list.component';
 import { AllClientListsComponent } from './all-client-lists/all-client-lists.component';
 import { LoginComponent } from './login/login.component';
 
+import { AuthGuardService } from './auth-guard.service';
+
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', component: AllClientListsComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
-  { path: 'my-lists', component: AllClientListsComponent },
-  { path: 'list/:id', component: ListComponent },
+  { path: 'my-lists', component: AllClientListsComponent, canActivate: [AuthGuardService] },
+  { path: 'list/:id', component: ListComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({
