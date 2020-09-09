@@ -50,6 +50,7 @@ export class ListComponent implements OnInit, OnDestroy {
       this.setProgress();
     })
       .catch(errorMsg => {
+        console.log(errorMsg);
         this.openSnackBar('❌ ' + errorMsg);
       });;
   }
