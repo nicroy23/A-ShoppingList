@@ -32,7 +32,6 @@ export class ItemsService {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem("id_token")}`
       }),
       withCredentials: true
     }
@@ -43,7 +42,6 @@ export class ItemsService {
           this.items = data.items;
           this.listName = data.list_name;
           resolve(data.items);
-          console.log(this.items);
         },
         error => {
           reject(error.error.error);

@@ -25,7 +25,9 @@ export class TitleBarComponent implements OnInit {
    * client.service.logoutClient() for more explanation on the logout logic
    */
   logoutUser(): void {
-    this.clientService.logoutClient().then(() => { this.router.navigateByUrl('/login') });
+    this.clientService.logoutClient().then(() => { this.router.navigateByUrl('/login') }).catch(errorMsg => {
+      console.log(errorMsg);
+    });
   }
 
 }

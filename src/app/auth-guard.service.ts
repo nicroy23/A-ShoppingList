@@ -18,7 +18,7 @@ export class AuthGuardService implements CanActivate{
    * @return If the user is loggedIn.
    */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('id_token')) {
+    if (localStorage.getItem('username')) {
         return true;
     }
 

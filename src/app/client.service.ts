@@ -78,9 +78,25 @@ export class ClientService {
    * Function that clears the localStorage of information saved by this app. The user is then logged out and does not have a token anymore.
    */
   logoutClient() {
-    return new Promise((resolve) => {
-      localStorage.clear();
-      resolve();
+    const API_URL = `http://localhost:4444/logout`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }),
+      withCredentials: true
+    }
+
+    return new Promise((resolve, reject) => {
+      this.http.get<{ authenticated: boolean, username: string }>(API_URL, httpOptions).subscribe(
+        data => {
+          localStorage.clear();
+          resolve(data);
+        },
+        error => {
+          reject(error.error.error);
+        }
+      )
     });
   }
   
