@@ -26,7 +26,6 @@ export class AllClientListsComponent implements OnInit {
   ngOnInit(): void {
     this.listService.getAllLists(localStorage.getItem("username")).then((data: { _id: string, user: string, list_name: string, items: [] }[]) => {
       this.allLists = data;
-      console.log(this.allLists);
     })
       .catch(errorMsg => {
         localStorage.clear();

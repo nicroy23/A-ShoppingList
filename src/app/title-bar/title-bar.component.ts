@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ClientService } from '../client.service';
 
@@ -15,7 +16,7 @@ export class TitleBarComponent implements OnInit {
    */
   @Input() title: string = "My Lists";
 
-  constructor(private clientService: ClientService, private router: Router) {}
+  constructor(private clientService: ClientService, private router: Router, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
   }
@@ -25,8 +26,21 @@ export class TitleBarComponent implements OnInit {
    * client.service.logoutClient() for more explanation on the logout logic
    */
   logoutUser(): void {
-    this.clientService.logoutClient().then(() => { this.router.navigateByUrl('/login') }).catch(errorMsg => {
-      console.log(errorMsg);
+    this.clientService.logoutClient()
+    .then(() => {
+      this.openSnackBar("💐 Have a great day!");
+      this.router.navigateByUrl('/login') 
+    })
+    .catch(errorMsg => {
+      this.openSnackBar("❌ " + errorMsg);
+    });
+  }
+
+  openSnackBar(message: string): void {
+    this._snackBar.open(message, '', {
+      duration: 2000,
+      horizontalPosition: "start",
+      verticalPosition: "top"
     });
   }
 

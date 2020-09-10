@@ -31,7 +31,10 @@ export class ListComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     this.listService.updateExistingList(this.route.snapshot.paramMap.get('client'), this.listId, this.items).then(data => {
-      console.log(data);
+      this.openSnackBar("💚 Saved!");
+    })
+    .catch(errorMsg => {
+      this.openSnackBar('❌ ' + errorMsg);
     });
   }
 
@@ -42,7 +45,10 @@ export class ListComponent implements OnInit, OnDestroy {
   @HostListener('window:beforeunload', [ '$event' ])
   beforeUnloadHandler() {
     this.listService.updateExistingList(this.route.snapshot.paramMap.get('client'), this.listId, this.items).then(data => {
-      console.log(data);
+      this.openSnackBar("💚 Saved!");
+    })
+    .catch(errorMsg => {
+      this.openSnackBar('❌ ' + errorMsg);
     });
   }
 
@@ -61,7 +67,6 @@ export class ListComponent implements OnInit, OnDestroy {
       this.setProgress();
     })
       .catch(errorMsg => {
-        console.log(errorMsg);
         this.openSnackBar('❌ ' + errorMsg);
       });;
   }
