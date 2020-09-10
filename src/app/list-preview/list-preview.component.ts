@@ -16,4 +16,8 @@ export class ListPreviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  deleteThisList(id: string): void {
+    console.log(id);
+  }
 }

@@ -1,19 +1,22 @@
-<div class="preview" [routerLink]="['/list/' + list._id]">
-    <div class="title-preview-parent"> 
-        <span class="title-preview">{{list.list_name}}</span>
+<div class="parent">
+  <div class="preview" [routerLink]="['/list/' + list._id]">
+    <div class="title-preview-parent">
+      <span class="title-preview">{{ list.list_name }}</span>
     </div>
     <div class="inside-preview">
-        <mat-card class="item-preview"></mat-card>
-        <mat-card class="item-preview"></mat-card>
-        <mat-card class="item-preview"></mat-card>
-        <mat-card class="item-preview"></mat-card>
+      <mat-card class="item-preview"></mat-card>
+      <mat-card class="item-preview"></mat-card>
+      <mat-card class="item-preview"></mat-card>
+      <mat-card class="item-preview"></mat-card>
     </div>
     <div class="list-name-parent">
-        <div class="list-title-preview">
-            {{list.list_name}}
-        </div>
-        <div class="list-date-preview">
-            {{list.creation_date}}
-        </div>
+      <div class="list-title-preview">
+        {{ list.list_name }}
+      </div>
+      <div class="list-date-preview">
+        {{ list.creation_date }}
+      </div>
     </div>
+  </div>
+  <a mat-button (click)="deleteThisList(list._id)" class="delete-link">Delete</a>
 </div>

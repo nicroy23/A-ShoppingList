@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
         if (data.authenticated) {
           localStorage.setItem("id_token", data.token);
           localStorage.setItem("username", data.username);
+          this.openSnackBar(`👋 Welcome back, ${data.username}!`);
           this.router.navigateByUrl('/my-lists');
         }
       })
@@ -57,9 +58,9 @@ export class LoginComponent implements OnInit {
         this.clientService.registerClient(username, password).then((data: { authenticated: boolean, username: string, token: string, error: string }) => {
           console.log(data);
           if (data.authenticated) {
-            console.log(data.token);
             localStorage.setItem("id_token", data.token);
             localStorage.setItem("username", data.username);
+            this.openSnackBar(`👋 Welcome, ${data.username}!`);
             this.router.navigateByUrl('/my-lists');
           }
         })
@@ -74,7 +75,7 @@ export class LoginComponent implements OnInit {
 
   openSnackBar(message: string): void {
     this._snackBar.open(message, '', {
-      duration: 2000,
+      duration: 3000,
       horizontalPosition: "start",
       verticalPosition: "top"
     });
