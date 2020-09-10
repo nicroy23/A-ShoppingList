@@ -79,8 +79,7 @@ export class ClientService {
    */
   logoutClient() {
     return new Promise((resolve) => {
-      localStorage.removeItem("id_token");
-      localStorage.removeItem("username");
+      localStorage.clear();
       resolve();
     });
   }

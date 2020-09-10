@@ -7,7 +7,14 @@
 
 @media screen and (max-width: 1500px) {
   .list {
+    width: 75%;
     margin-top: 30%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .list {
+    margin-top: 45%;
   }
 }
 
@@ -55,4 +62,17 @@
 
 .item-parent:hover {
   cursor: move;
+}
+
+.footer {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  color: #003366;
+  width: 100vw;
+  background-color: transparent;
 }

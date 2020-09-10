@@ -23,11 +23,12 @@ export class AllClientListsComponent implements OnInit {
    * field of this component using the promise it gets back from the service. 
    */
   ngOnInit(): void {
-    this.listService.getAllLists(this.route.snapshot.paramMap.get('client')).then((data: { _id: string, user: string, list_name: string, items: [] }[]) => {
+    this.listService.getAllLists(localStorage.getItem("username")).then((data: { _id: string, user: string, list_name: string, items: [] }[]) => {
       this.allLists = data;
       console.log(this.allLists);
     })
       .catch(errorMsg => {
+        localStorage.clear();
         this.openSnackBar('❌ ' + errorMsg);
       });
   }

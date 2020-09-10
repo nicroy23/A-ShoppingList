@@ -3,7 +3,13 @@
   margin: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
+  .parent {
+    margin-top: 10%;
+  }
+}
+
+@media screen and (max-width: 750px) {
   .parent {
     margin-top: 20%;
   }
@@ -18,4 +24,16 @@
 
 .preview {
   margin-top: 10%;
+}
+
+.footer {
+  padding-top: 5%;
+  padding-bottom: 1%;
+  text-align: center;
+  justify-content: space-evenly;
+  color: #003366;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
 }
