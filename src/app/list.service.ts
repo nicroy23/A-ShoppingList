@@ -109,4 +109,27 @@ export class ListService {
       )
     });
   }
+
+  deleteList(listId: string) {
+    const API_URL = `http://localhost:4444/list/${listId}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("id_token")}`
+      }),
+      withCredentials: true
+    }
+
+    return new Promise((resolve, reject) => {
+      this.http.delete<{}>(API_URL, httpOptions).subscribe(
+        data => {
+          resolve(data);
+        },
+        error => {
+          reject(error.error.error);
+        }
+      )
+    });
+  }
 }

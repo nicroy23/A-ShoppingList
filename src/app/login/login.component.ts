@@ -12,10 +12,12 @@ import { ClientService } from '../client.service';
 export class LoginComponent implements OnInit {
 
   hide = true;
+  public year: number;
 
   constructor(private clientService: ClientService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.year = this.getYear();
   }
 
   /**
@@ -71,6 +73,10 @@ export class LoginComponent implements OnInit {
         this.openSnackBar("❌ Passwords are different!");
       }
     }
+  }
+
+  getYear(): number {
+    return new Date().getFullYear();
   }
 
   openSnackBar(message: string): void {

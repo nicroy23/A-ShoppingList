@@ -15,6 +15,7 @@ export class AllClientListsComponent implements OnInit {
    * Every list of specific client. 
    */
   public allLists: { _id: string, user: string, list_name: string, items: [] }[];
+  public year: number;
 
   constructor(private listService: ListService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
@@ -31,6 +32,16 @@ export class AllClientListsComponent implements OnInit {
         localStorage.clear();
         this.openSnackBar('❌ ' + errorMsg);
       });
+
+      this.year = this.getYear();
+  }
+
+  refreshMe($event): void {
+    this.ngOnInit();
+  }
+
+  getYear(): number {
+    return new Date().getFullYear();
   }
 
   openSnackBar(message: string): void {

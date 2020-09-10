@@ -1,6 +1,7 @@
 .parent {
   width: 90%;
   margin: auto;
+  min-height: 85%;
 }
 
 @media screen and (max-width: 1500px) {
