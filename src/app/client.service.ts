@@ -52,7 +52,7 @@ export class ClientService {
    * @return A promise that the component handles the data received and saves the token. 
    */
   registerClient(username: string, password: string) {
-    const API_URL = `https://surrealist.herokuapp.com//sign-in`;
+    const API_URL = `https://surrealist.herokuapp.com/sign-in`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
