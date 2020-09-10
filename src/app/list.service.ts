@@ -21,7 +21,7 @@ export class ListService {
    * @return A promise containing all the user's lists. 
    */
   getAllLists(user: string) {
-    const API_URL = `http://localhost:4444/${user}/all-lists`;
+    const API_URL = `https://surrealist.herokuapp.com/${user}/all-lists`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
@@ -53,7 +53,7 @@ export class ListService {
    * @return A promise which contains the new list data, the same one that is stored in the DB. 
    */
   createNewList(user: string, listName: string, creationDate: string) {
-    const API_URL = `http://localhost:4444/${user}/0`;
+    const API_URL = `https://surrealist.herokuapp.com/${user}/0`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
@@ -86,7 +86,7 @@ export class ListService {
    * @return A promise, which sends the updated list to the component when the server responds. 
    */
   updateExistingList(user: string, listId: string, items: { id: string, name: string, checked: boolean }[]) {
-    const API_URL = `http://localhost:4444/${user}/${listId}`;
+    const API_URL = `https://surrealist.herokuapp.com/${user}/${listId}`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
@@ -108,7 +108,7 @@ export class ListService {
   }
 
   deleteList(listId: string) {
-    const API_URL = `http://localhost:4444/list/${listId}`;
+    const API_URL = `https://surrealist.herokuapp.com/list/${listId}`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',

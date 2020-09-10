@@ -20,7 +20,7 @@ export class ClientService {
    * has responded. 
    */
   loginClient(username: string, password: string) {
-    const API_URL = `http://localhost:4444/login`;
+    const API_URL = `https://surrealist.herokuapp.com//login`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
@@ -52,7 +52,7 @@ export class ClientService {
    * @return A promise that the component handles the data received and saves the token. 
    */
   registerClient(username: string, password: string) {
-    const API_URL = `http://localhost:4444/sign-in`;
+    const API_URL = `https://surrealist.herokuapp.com//sign-in`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
@@ -78,7 +78,7 @@ export class ClientService {
    * Function that clears the localStorage of information saved by this app. The user is then logged out and does not have a token anymore.
    */
   logoutClient() {
-    const API_URL = `http://localhost:4444/logout`;
+    const API_URL = `https://surrealist.herokuapp.com/logout`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',

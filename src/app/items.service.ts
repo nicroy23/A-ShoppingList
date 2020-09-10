@@ -27,7 +27,7 @@ export class ItemsService {
    * the items, so that the list component does not get an empty array or the wrong items.
    */
   getAllItemsFromList(id: string) {
-    const API_URL = `http://localhost:4444/${localStorage.getItem("username")}/list/${id}`;
+    const API_URL = `https://surrealist.herokuapp.com/${localStorage.getItem("username")}/list/${id}`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
