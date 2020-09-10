@@ -20,7 +20,7 @@ export class ClientService {
    * has responded. 
    */
   loginClient(username: string, password: string) {
-    const API_URL = `https://surrealist.herokuapp.com//login`;
+    const API_URL = `https://surrealist.herokuapp.com/login`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'application/json, text/plain, */*',
