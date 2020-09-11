@@ -28,13 +28,22 @@ export class AllClientListsComponent implements OnInit {
       this.allLists = data;
     })
       .catch(errorMsg => {
-        localStorage.clear();
-        this.openSnackBar('❌ ' + errorMsg);
+        localStorage.clear(); //To make sure that no weird begavior happens if the localstorage is not empty.
+        if (errorMsg) {
+          this.openSnackBar('❌ ' + errorMsg);
+        } else {
+          this.openSnackBar('❌ Error, Please try again.');
+        }
       });
 
-      this.year = this.getYear();
+    this.year = this.getYear();
   }
 
+  /**
+   * Function that gets called when the parent component gets a refresh event from the child (list-preview).
+   * 
+   * @param $event - The event that is receives.
+   */
   refreshMe($event): void {
     this.ngOnInit();
   }

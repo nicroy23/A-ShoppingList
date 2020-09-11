@@ -43,17 +43,25 @@ export class AddListComponent implements OnInit {
    */
   newList(listName: string): void {
     if (listName !== "") {
-      //CHANGE NAME LOGIC
       this.listService.createNewList(localStorage.getItem("username"), listName, this.date).then((data: { items: [], user: string, list_name: string, creation_date: string, _id: string }) => {
         console.log(data);
         this.router.navigateByUrl(`/list/${data._id}`);
       })
         .catch(errorMsg => {
-          this.openSnackBar('❌ ' + errorMsg);
+          if (errorMsg) {
+            this.openSnackBar('❌ ' + errorMsg);
+          } else {
+            this.openSnackBar('❌ Error, Please try again.');
+          }
         });;
     }
   }
 
+  /**
+   * General function that displays a snackbar with the message inside.
+   *  
+   * @param message - The message we want to display.
+   */
   openSnackBar(message: string): void {
     this._snackBar.open(message, '', {
       duration: 2000,

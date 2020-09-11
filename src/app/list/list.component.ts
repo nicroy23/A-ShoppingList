@@ -33,23 +33,31 @@ export class ListComponent implements OnInit, OnDestroy {
     this.listService.updateExistingList(this.route.snapshot.paramMap.get('client'), this.listId, this.items).then(data => {
       this.openSnackBar("💚 Saved!");
     })
-    .catch(errorMsg => {
-      this.openSnackBar('❌ ' + errorMsg);
-    });
+      .catch(errorMsg => {
+        if (errorMsg) {
+          this.openSnackBar('❌ ' + errorMsg);
+        } else {
+          this.openSnackBar('❌ Error, Please try again.');
+        }
+      });
   }
 
   /**
    * Function that is called just before the window is closed. That means it will save the new items even if the user does not return to home
    * before closing. 
    */
-  @HostListener('window:beforeunload', [ '$event' ])
+  @HostListener('window:beforeunload', ['$event'])
   beforeUnloadHandler() {
     this.listService.updateExistingList(this.route.snapshot.paramMap.get('client'), this.listId, this.items).then(data => {
       this.openSnackBar("💚 Saved!");
     })
-    .catch(errorMsg => {
-      this.openSnackBar('❌ ' + errorMsg);
-    });
+      .catch(errorMsg => {
+        if (errorMsg) {
+          this.openSnackBar('❌ ' + errorMsg);
+        } else {
+          this.openSnackBar('❌ Error, Please try again.');
+        }
+      });
   }
 
   /**
@@ -67,7 +75,11 @@ export class ListComponent implements OnInit, OnDestroy {
       this.setProgress();
     })
       .catch(errorMsg => {
-        this.openSnackBar('❌ ' + errorMsg);
+        if (errorMsg) {
+          this.openSnackBar('❌ ' + errorMsg);
+        } else {
+          this.openSnackBar('❌ Error, Please try again.');
+        }
       });;
   }
 
@@ -108,6 +120,7 @@ export class ListComponent implements OnInit, OnDestroy {
     }
   }
 
+  //General function to open a snackbar with a message.
   openSnackBar(message: string): void {
     this._snackBar.open(message, '', {
       duration: 2000,

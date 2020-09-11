@@ -39,7 +39,11 @@ export class LoginComponent implements OnInit {
         }
       })
         .catch(errorMsg => {
-          this.openSnackBar('❌ ' + errorMsg);
+          if (errorMsg) {
+            this.openSnackBar('❌ ' + errorMsg);
+          } else {
+            this.openSnackBar('❌ Error, Please try again.');
+          }
         })
         ;
     }
@@ -67,7 +71,11 @@ export class LoginComponent implements OnInit {
           }
         })
           .catch(errorMsg => {
-            this.openSnackBar('❌ ' + errorMsg);
+            if (errorMsg) {
+              this.openSnackBar('❌ ' + errorMsg);
+            } else {
+              this.openSnackBar('❌ Error, Please try again.');
+            }
           });
       } else {
         this.openSnackBar("❌ Passwords are different!");
