@@ -64,8 +64,6 @@ export class ListComponent implements OnInit, OnDestroy {
    * When the component loads, it sets the items in the list to the items in the itemsService. It is based on an async/promise operation, 
    * so that is why it is important to use the .then() to update the items of the component. Also calls for the method setProgress(), 
    * because it needs to set the progress of the list after getting the items checked or not.
-   * 
-   * @returns Nothing.
    */
   setItems(): void {
     this.itemsService.getAllItemsFromList(this.route.snapshot.paramMap.get('id')).then((data: { id: string, name: string, checked: boolean }[]) => {
@@ -85,8 +83,6 @@ export class ListComponent implements OnInit, OnDestroy {
 
   /**
    * Sets the progress bar to the right length.
-   * 
-   * @returns Nothing.
    */
   setProgress(): void {
     this.pourcentage = this.itemsService.getProgress();
