@@ -14,6 +14,13 @@
     text-decoration: line-through;
 }
 
+.item-input {
+    background-color: transparent;
+    outline-style: none;
+    border-bottom: 1px solid white;
+    font-family: 'Architects Daughter', cursive;
+}
+
 .done-button-parent {
     float: right;
     width: 1em;
