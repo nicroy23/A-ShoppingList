@@ -48,6 +48,7 @@ export class ListComponent implements OnInit, OnDestroy {
    */
   @HostListener('window:beforeunload', ['$event'])
   beforeUnloadHandler() {
+    window.alert("Do you really want to quit? Your items will not be saved except if you go back to home.");
     this.listService.updateExistingList(this.route.snapshot.paramMap.get('client'), this.listId, this.items).then(data => {
       this.openSnackBar("💚 Saved!");
     })

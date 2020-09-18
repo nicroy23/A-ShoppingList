@@ -106,6 +106,9 @@ export class ItemsService {
     return Math.round(this.getNumItemsChecked() / this.items.length * 100);
   }
 
+  /**
+   * Returns the name of the list.
+   */
   getListName(): string {
     return this.listName;
   }
