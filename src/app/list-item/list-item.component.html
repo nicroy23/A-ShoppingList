@@ -1,6 +1,6 @@
 <mat-card class="item">
   <!-- <span class="item-text" [ngClass]="{'item-checked': item.checked}">{{item.name}}</span> -->
-  <input #itemInput type="text" class="item-input" value="{{item.name}}" (keyup.enter)="updateItemName(itemInput.value)" />
+  <input #itemInput type="text" class="item-input" value="{{item.name}}" (input)="updateItemName(itemInput.value)" />
   <div class="done-button-parent">
     <button mat-mini-fab class="done-button-unchecked" [ngClass]="{'done-button-checked': item.checked}" type="button" (click)="toggleDone()" aria-label="Done Button">
       <mat-icon>done</mat-icon>
