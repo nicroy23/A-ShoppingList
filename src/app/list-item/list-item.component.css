@@ -15,8 +15,9 @@
 }
 
 .item-input {
+    width: 100%;
     background-color: transparent;
-    outline-style: none;
+    border-style: none;
     border-bottom: 1px solid white;
     font-family: 'Architects Daughter', cursive;
 }

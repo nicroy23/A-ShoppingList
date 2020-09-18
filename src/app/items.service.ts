@@ -60,6 +60,10 @@ export class ItemsService {
     this.getProgress();
   }
 
+  updateItemName(id: string, name: string) {
+    this.items[this.findIndexById(id)].name = name;
+  }
+
   /**
    * Function to return the index in the items array by searching the array with the item id.
    * 

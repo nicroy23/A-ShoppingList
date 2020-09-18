@@ -33,4 +33,7 @@ export class ListItemComponent implements OnInit {
     this.messageEvent.emit(this.itemsService.getProgress());
   }
 
+  public updateItemName(value: string): void {
+    this.itemsService.updateItemName(this.item.id, value);
+  } 
 }
